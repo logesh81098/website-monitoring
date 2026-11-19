@@ -14,3 +14,11 @@ module "key-pair" {
 module "iam" {
   source = "./module/iam"
 }
+
+module "ec2-instance" {
+  source = "./module/ec2-instance"
+  subnet-id = module.vpc.public-subnet-id
+  security-group = module.security-groups.security-group
+  keypair-name = module.key-pair.keypair
+  instance-profile = module.iam.instance-profile
+}
