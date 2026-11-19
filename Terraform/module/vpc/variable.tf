@@ -18,3 +18,8 @@ variable "anywhere-ip" {
   default = "0.0.0.0/0"
 }
 
+variable "enable-private-subnet" {
+  default = false 
+  type = bool
+  description = "Enable or Disable Private subnet and its associated resources"
+}
