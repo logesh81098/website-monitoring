@@ -62,6 +62,9 @@ resource "aws_eip" "elastic-ip" {
 resource "aws_nat_gateway" "website-monitoring-nat" {
   subnet_id = aws_subnet.public-subnet.id
   allocation_id = aws_eip.elastic-ip.id
+  tags = {
+    Name = "Website Monitoring NAT Gateway"
+  }
 }
 
 ##############################################################################################################################
@@ -109,3 +112,5 @@ resource "aws_route_table_association" "private-rt-association" {
   route_table_id = aws_route_table.private-rt.id
   subnet_id = aws_subnet.private-subnet.id
 }
+
+#Note: We are controlling the Private Subnet related resource deployment by adding Booling Variable (True or False)

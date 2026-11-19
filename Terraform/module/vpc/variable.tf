@@ -17,3 +17,4 @@ variable "az1" {
 variable "anywhere-ip" {
   default = "0.0.0.0/0"
 }
+
