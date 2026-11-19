@@ -16,5 +16,5 @@ resource "aws_key_pair" "website-monitoring-server-key" {
 
 resource "local_file" "pem-file" {
   filename = "Website-Monitoring-Server.pem"
-  content = tls_private_key.server-key.public_key_openssh
+  content = tls_private_key.server-key.private_key_openssh
 }
